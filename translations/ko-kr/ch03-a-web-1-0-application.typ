@@ -334,7 +334,6 @@ HTML에 익숙하다면 여기서 양식 요소를 기대할 것입니다. 실�
 그 다음에는 연락처를 위한 다른 필드에 대한 입력이 이어집니다:
 
 #figure(caption: [새 연락처 양식을 위한 입력 및 레이블],
-```
 ```html
 <p>
   <label for="first_name">First Name</label>
