@@ -1,5 +1,5 @@
 
-#import "lib/definitions.typ": *
+#import "lib/definitions-ko-kr.typ": *
 
 #set document(
   title: [하이퍼미디어 시스템],

@@ -1,6 +1,6 @@
 
-#import "lib/definitions.typ": *
-#import "lib/style.typ": *
+#import "lib/definitions-ko-kr.typ": *
+#import "lib/style-ko-kr.typ": *
 
 #show: hypermedia-systems-book(
   [하이퍼미디어 시스템], authors: ("카슨 그로스", "아담 스테핀스키", "데니즈 악심색"),
