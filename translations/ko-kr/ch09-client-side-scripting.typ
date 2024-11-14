@@ -66,9 +66,9 @@ sidebar[서버][비즈니스 로직과 프레젠테이션 로직을 모두 "서�
 
 그러나 흥미로운 인터넷 전설 중 하나는 JavaScript가 항상 유일한 내장 옵션이 아니었다는 것입니다. 이 장 초반에 인용된 로이 필딩의 인용처럼, Java와 같은 다른 언어로 작성된 "애플릿"은 웹의 스크립팅 인프라의 일부로 간주되었습니다. 게다가 Internet Explorer가 Visual Basic을 기반으로 한 스크립팅 언어인 VBScript를 지원하던 시기도 있었습니다.
 
-오늘날 우리는 TypeScript, Dart, Kotlin, ClojureScript, F# 등 다양한 언어를 JavaScript로 변환하는 _transcompilers_ (종종 _transpilers_ 라고 줄여 부름)와 함께 WebAssembly (WASM) 바이트코드 형식을 가지고 있습니다. WASM은 C, Rust 및 WASM 중심 언어인 AssemblyScript의 컴파일 대상 지원 언어입니다.
+오늘날 우리는 TypeScript, Dart, Kotlin, ClojureScript, F\# 등 다양한 언어를 JavaScript로 변환하는 _transcompilers_ (종종 _transpilers_ 라고 줄여 부름)와 함께 WebAssembly (WASM) 바이트코드 형식을 가지고 있습니다. WASM은 C, Rust 및 WASM 중심 언어인 AssemblyScript의 컴파일 대상 지원 언어입니다.
 
-하지만 이러한 대부분의 옵션은 하이퍼미디어 친화적 스크립팅 방식에 맞춰 설계되지 않았습니다. Compile-to-JS 언어는 종종 SPA지향 라이브러리(Dart 및 AngularDart, ClojureScript 및 Reagent, F# 및 Elm)와 함께 결합되며, 현재 WASM는 주로 JavaScript의 C/C++ 라이브러리와 연결하는 데 사용됩니다.
+하지만 이러한 대부분의 옵션은 하이퍼미디어 친화적 스크립팅 방식에 맞춰 설계되지 않았습니다. Compile-to-JS 언어는 종종 SPA지향 라이브러리(Dart 및 AngularDart, ClojureScript 및 Reagent, F\# 및 Elm)와 함께 결합되며, 현재 WASM는 주로 JavaScript의 C/C++ 라이브러리와 연결하는 데 사용됩니다.
 
 우리는 대신 세 가지 클라이언트 측 스크립팅 기술에 집중할 것입니다:
 - VanillaJS, 즉 어떤 프레임워크에도 의존하지 않고 JavaScript 사용.
@@ -201,7 +201,7 @@ JavaScript를 다른 파일로 이동함으로써 우리는 _관심사의 분리
 
 이제 HTML과 JavaScript 모두에서 이 클래스 이름은 단순한 문자열이며, 이로 인해 버튼이 올바른 클래스가 있는지 또는 그 조상 클래스를 확인할 프로세스가 없습니다. 실제로 인해 밀접하게 연결된 커널에 의해 고통을 겪고 있습니다.
 
-안타깝게도 JavaScript에서 CSS 선택자의 부주의한 사용은 _#indexed[jQuery 스프]를 초래할 수 있습니다. jQuery 수프는 다음과 같은 상황입니다:
+안타깝게도 JavaScript에서 CSS 선택자의 부주의한 사용은 _#indexed[jQuery 스프]_를 초래할 수 있습니다. jQuery 수프는 다음과 같은 상황입니다:
 - 특정 요소에 주어진 동작을 연결하는 JavaScript 코드를 찾기가 어렵습니다.
 - 코드 재사용이 어렵습니다.
 - 코드는 무질서하고 "평평하게" 되어 많은 무관한 이벤트 핸들러가 뒤섞입니다.
@@ -254,7 +254,7 @@ HTML의 작은 변경으로 인해 스크립트가 손상된다는 사실은 두
 
 ===== 카운터로 무엇을 할 것인가?
 
-#index[JavaScript][on*]
+#index[JavaScript][on\*]
 그렇다면 다시 `onclick` 속성 방법으로 돌아가야 할까요? 해당 방식은 행동의 지역성에서확실히 승리하며, HTML에 기본으로 내장되어 있는 추가적인 이점이 있습니다.
 
 하지만 불행히도 `on*` JavaScript 속성에는 몇 가지 단점도 있습니다:
@@ -274,8 +274,8 @@ HTML의 작은 변경으로 인해 스크립트가 손상된다는 사실은 두
 
 ==== RSJS
 
-#index[RSJS] 
-#(합리적인 자바스크립트 구조화 시스템,"#link("https://ricostacruz.com/rsjs/"))는 "전형적인 비SPA 웹사이트"를 대상으로 하는 JavaScript 구조 지침 세트입니다. RSJS는 앞서 언급한 바닐라 JavaScript의 표준 코드 스타일 부족 문제에 대한 해결책을 제공합니다.
+#index[RSJS] (합리적인 자바스크립트 구조화 시스템,"
+#link("https://ricostacruz.com/rsjs/"))는 "전형적인 비SPA 웹사이트"를 대상으로 하는 JavaScript 구조 지침 세트입니다. RSJS는 앞서 언급한 바닐라 JavaScript의 표준 코드 스타일 부족 문제에 대한 해결책을 제공합니다.
 
 다음은 우리 카운터 위젯에 가장 관련된 RSJS 지침입니다:
 - HTML에서 "data-" 속성을 사용하십시오: 데이터 속성 추가를 통해 행동을 호출하면 자바스크립트가 발생하고 있음을 명확하게 나타내는 반면, 임의의 클래스나 ID를 사용하는 것은 실수로 삭제되거나 변경될 수 있습니다.
@@ -751,7 +751,7 @@ htmx와 AlpineJS처럼 \_hyperscript는 CDN 또는 npm(패키지 이름 `hypersc
 #sidebar[자연어 프로그래밍?][
 숙련된 프로그래머는 \_hyperscript에 의심을 가질 수 있습니다: 많은 "자연어 프로그래밍" (NLP) 프로젝트는 비 프로그래머 및 초보 프로그래머를 대상으로 하며, 그들이 "자연어"로 코드를 읽을 수 있다면 그만큼 코드를 작성할 수 있다고 가정하였습니다. 이는 불행히도 형편없이 작품이 잘 쓰여지지 않았고 구조가 부실한 코드로 이어졌습니다. 
 
-\_hyperscript는 _자연어 NLP 프로그래밍 언어가 아닙니다. 네, 그 구문은 이후 웹 개발자의 말을 떠올리는 것들이 많은 곳에서 영감을 받았습니다. 하지만 \_hyperscript의 가독성은 복잡한 휴리스틱이나 모호한 NLP 처리 덕분이 아니라, 공통 구문 처리 기술을 잘 활용하고 읽기와 가독성을 높일 수 있도록 한 문화적 발상 덕분입니다.
+\_hyperscript는 자연어 NLP 프로그래밍 언어가 _아닙니다_. 네, 그 구문은 이후 웹 개발자의 말을 떠올리는 것들이 많은 곳에서 영감을 받았습니다. 하지만 \_hyperscript의 가독성은 복잡한 휴리스틱이나 모호한 NLP 처리 덕분이 아니라, 공통 구문 처리 기술을 잘 활용하고 읽기와 가독성을 높일 수 있도록 한 문화적 발상 덕분입니다.
 
 앞서 예시에서 본 것처럼, _쿼리 참조_ `<output/>`를 사용함으로 \_hyperscript는 적절한 경우 DOM에서 비자연 언어를 사용하기를 주저하지 않습니다.]
 
@@ -807,19 +807,19 @@ on keydown[altKey and code is 'KeyS'] from window ...
 
 / 비동기 투명성: #[
   #index[\_hyperscript][async transparency] \_hyperscript에서 비동기 함수(즉, 'Promise' 인스턴스를 반환하는 함수)는 _동기적인 방법으로_ 호출될 수 있습니다. 함수가 동기에서 비동기으로 변경되는 경우 \_hyperscript 코드가 이를 호출하는 것을 중단하지 않습니다. 이는 모든 표현이 `Promise`를 고려하도록 하고 어떤 경우에는 현재 실행 중인 스크립트를 유보하고 주 스레드를 차단하지 않도록 입수됩니다. 대조적으로, JavaScript에서는 명시적인 콜백을 사용하거나 명시적인 `async` 주석을 사용해야 하며, 이는 동기 코드를 섞지 않고 사용할 수 없습니다.
-]
+  ]
 
 / 배열 속성 접근: #[
   #index[\_hyperscript][array property access] \_hyperscript에서는 배열에서 속성을 액세스할 경우(길이 또는 숫자가 아닌 경우) 배열의 각 구성 요소에 대한 속성 값을 배열 형태로 반환하여, 배열 속성 접근이 평면-맵 작업처럼 작동합니다. jQuery에서는 유사한 기능이 있지만, 자신의 Data Structure에만 용이합니다.
-]
+  ]
 
 / 네이티브 CSS 구문: #[
   #index[\_hyperscript][native CSS syntax] \_hyperscript에서는 JavaScript에서와는 달리 CSS 클래스 및 ID 리터럴 또는 CSS 쿼리 리터럴을 직접 사용할 수 있습니다.
-]
+  ]
 
 / 깊이 있는 이벤트 지원: #[
   #index[\_hyperscript][event support] \_hyperscript에서 이벤트를 처리하는 것은 JavaScript에서 취급할 때보다 훨씬 좋으며, 이벤트를 수신하거나 전송할 수 있는 기본 지원과 함께 "디바운싱" 또는 속도를 조정한 이벤트와 같은 일반적인 이벤트 처리 패턴을 제공합니다. \_hyperscript 또한 주어진 요소와 여러 요소 간에 이벤트를 동기화하는 선언적 메커니즘을 제공합니다.
-]
+  ]
 
 우리는 이 예가 하이퍼미디어 주도 애플리케이션의 경계를 넘어서는 것을 바라는 것은 아니며, 대신 클라이언트 측 기능이 사용자와 제어할 수 있게 하는 것이 기간이 짧도록 하여 여유롭게 접근할 수 있습니다. 우리는 많은 내부 상태를 DOM 외부에 두지 않거나 비하이퍼미디어 교환으로 서버와 대화하지 않도록 사용해야 합니다.
 
@@ -827,16 +827,16 @@ on keydown[altKey and code is 'KeyS'] from window ...
 
 모든 스크립트 스타일이나 필요에 맞지는 않겠지만, \_hyperscript는 하이퍼미디어 주도 애플리케이션에 좋은 스크립팅 경험을 제공할 수 있습니다. 간단하고 불분명한 프로그래밍 언어의 특징을 잘 이해하고발전시키면 누가 과감해지고 충분히 긴박하게 나아가야 하며 관심과 좋아하는 기회를 가지고 더 많은 고급 스크립팅 언어를 목표로 삼기를 바랍니다.
 
-=== 기성 구성 요소 사용하기 <_using_off_the_shelf_components>
+=== 기성 컴포넌트 사용하기 <_using_off_the_shelf_components>
 이제 하이퍼미디어 주도 애플리케이션을 향상시키기 위해 _당신이_ 작성하는 코드의 세 가지 구성 요소에 대해 살펴보았습니다. 하지만 클라이언트 측 스크립팅에 관계된 또 다른 주요 분야가 있습니다: "재고" 구성 요소입니다. 즉, 다른 사람들이 생성한 JavaScript 라이브러리로 어떤 형태의 기능을 제공합니다.
 
-#index[구성 요소들]
+#index[컴포넌트]
 구성 요소는 웹 개발 세계에서 매우 인기가 높아지면서 #link("https://datatables.net/")[DataTables]와 같은 라이브러리를 제공하여 사용자가 쉽게 JavaScript 코드를 작성하지 않고도 풍부한 사용자 경험을 제공합니다. 그러나 이러한 라이브러리가 웹사이트에 잘 통합되지 않는다면 어플리케이션이 "조합된 느낌"을 줄 수 있습니다. 게다가, 일부 라이브러리는 단순한 DOM 조작을 넘어 서버 엔드포인트와 통합해야 하며, 거의 언제나 JSON 데이터 API와 연결되기를 요구합니다. 이는 특정 위젯이 다른 것을 요구하게 되는 것처럼, 하이퍼미디어 주도 애플리케이션을 만드는 방법이 아니게 됩니다. 아쉽습니다!
 
 #sidebar[웹 컴포넌트][
 웹 컴포넌트는 몇 가지 표준; 사용자 정의 요소, 그림자 DOM, `<template>` 및 `<slot>`의 집합적인 명칭입니다.
 
-#index[웹 구성 요소]
+#index[웹 컴포넌트]
 이 모든 표준들은 유용한 기능을 테이블에 가져옵니다. `<template>` 요소는 그 내용물을 문서에서 제거하지만 HTML로 파싱 중에(댓글처럼 아님) JavaScript에 접근할 수 있도록 합니다. 사용자 정의 요소는 추가하거나 제거 될 때 요소에 기능의 초기화와 철수를 가능하게 하여, 수동적인 작업이나 MutationObservers를 요구하지 않습니다. 그림자 DOM은 요소들을 캡슐화하여 "빛" (비그림자) DOM을 깨끗하게 유지하도록 합니다.
 
 하지만 이러한 이점을 얻는 것은 종종 좌절스럽습니다. 이러한 어려움은 단순히 새로운 표준(그림자 DOM의 접근성 문제와 같은 성장통)이 요구하는 발전에 대한 문제일 수 있습니다. 다른 문제들은 웹 구성 요소가 동시에 너무 많은 것을 시도하는 결과입니다:
@@ -849,9 +849,12 @@ on keydown[altKey and code is 'KeyS'] from window ...
 
 웹 컴포넌트를 언제 사용해야 할까요? 좋은 규칙은 "이것이 합리적으로 내장 HTML 요소가 될 수 있을까?"라고 스스로에게 물어보는 것입니다. 예를 들어, 코드 편집기는 좋은 후보입니다. 이미 HTML에는 `<textarea>`와 `contenteditable` 요소가 있기 때문입니다. 또한, 완전한 기능을 갖춘 코드 편집기는 많은 자식 요소를 포함할 것이며, 이들은 그다지 많은 정보를 제공하지 않을 것입니다. 우리는 이러한 요소들을 캡슐화하기 위해 #link(
   "https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM",
-)[Shadow DOM]와 같은 기능을 사용할 수 있습니다#footnote[Shadow DOM은 현재 작성 시점에서 개발 중인 최신 웹 플랫폼 기능입니다. 특히, shadow root 내부와 외부의 요소가 상호작용할 때 발생할 수 있는 접근성 오류가 있습니다.]. 우리는 원하는 경우 언제든지 페이지에 드롭할 수 있는 #link(
+)[Shadow DOM]
+과 같은 기능을 사용할 수 있습니다#footnote[Shadow DOM은 현재 작성 시점에서 개발 중인 최신 웹 플랫폼 기능입니다. 특히, shadow root 내부와 외부의 요소가 상호작용할 때 발생할 수 있는 접근성 오류가 있습니다.].
+우리는 원하는 경우 언제든지 페이지에 드롭할 수 있는 #link(
   "https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements",
 )[custom element], 즉 `<code-area>`를 만들 수 있습니다.
+]
 
 ==== 통합 옵션 <_integration_options>
 하이퍼미디어 기반 애플리케이션을 구축할 때 가장 잘 작동하는 자바스크립트 라이브러리는 다음과 같은 특성을 가진 것들입니다:

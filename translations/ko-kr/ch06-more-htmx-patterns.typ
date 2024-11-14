@@ -1,3 +1,5 @@
+#import "lib/definitions.typ": *
+
 == 더 많은 Htmx 패턴
 
 === 액티브 검색 <_active_search>
@@ -157,7 +159,7 @@ Cache-Control: no-cache
 Connection: keep-alive
 DNT: 1
 Pragma: no-cache
-```
+```)
 
 Htmx는 이 HTTP 기능을 활용하여 추가적인 헤더와 따라서 HTTP 요청에 대한 추가적인 _맥락_을 추가합니다. 이렇게 하면 이러한 헤더를 검사하고 서버에서 실행할 논리를 선택하며 클라이언트에 송신할 HTML 응답의 종류를 선택할 수 있습니다.
 
@@ -211,7 +213,7 @@ def contacts():
     else:
   contacts_set = Contact.all()
     return render_template("index.html", contacts=contacts_set)
-```
+```)
 1. 요청 헤더 `HX-Trigger`가 "search"인 경우 다른 작업을 수행합니다.
 2. 행만 렌더링하는 방법을 배워야 합니다.
 
@@ -243,7 +245,7 @@ def contacts():
   {% endfor %}
   </tbody>
 </table>
-```
+```)
 
 이 템플릿의 `for` 루프는 `index.html`에 의해 생성된 최종 콘텐츠의 모든 행을 만들어냅니다. 우리가 하고 싶은 것은 `for` 루프, 따라서 그것이 만드는 행을 _별도의 템플릿 파일_로 이동하여 이 작은 HTML을 독립적으로 렌더링할 수 있도록 하는 것입니다.
 
@@ -261,7 +263,7 @@ def contacts():
       <a href="/contacts/{{ contact.id }}">보기</a></td>
   </tr>
 {% endfor %}
-```
+```)
 
 이 템플릿을 사용하면 주어진 연락처 컬렉션에 대한 `tr` 요소만 렌더링할 수 있습니다.
 
@@ -283,7 +285,7 @@ def contacts():
   {% include 'rows.html' %} <1>
   </tbody>
 </table>
-```
+```)
 1. 이 지시어는 `rows.html` 파일을 "포함하여" 그 콘텐츠를 현재 템플릿에 삽입합니다.
 
 지금까지 괜찮습니다: 우리의 `/contacts` 페이지는 여전히 이전과 같이 올바르게 렌더링됩니다. `index.html` 템플릿에서 행을 분리한 이후에도 말입니다.
@@ -305,7 +307,7 @@ def contacts():
     else:
         contacts_set = Contact.all()
     return render_template("index.html", contacts=contacts_set)
-```
+```)
 1. 액티브 검색의 경우 새로운 템플릿을 렌더링합니다.
 
 이제 액티브 검색 요청이 오면, 전체 HTML 문서 대신에 검색과 일치하는 연락처의 테이블 행만 포함된 부분적인 HTML을 받게 됩니다. 그런 다음 이러한 행은 `index` 페이지의 `tbody`에 삽입되며, `hx-select`나 다른 클라이언트 측 처리 없이도 가능합니다.
@@ -327,7 +329,7 @@ def contacts():
 #figure(caption: [폼 검색 후 업데이트된 위치],
 ```
 https://example.com/contacts?q=joe
-```
+```)
 
 이는 브라우저의 멋진 기능입니다: 이를 통해 사용자는 검색을 북마크하거나 URL을 복사하여 다른 사람에게 보낼 수 있습니다. 그들이 링크를 클릭하기만 하면 정확히 동일한 검색이 반복됩니다. 이것은 브라우저의 히스토리 개념과도 연결됩니다: 사용자가 뒤로 버튼을 클릭하게 되면 그들이 이전에 오던 URL로 돌아갑니다. 두 번 검색을 제출한 후 처음으로 돌아가고 싶다면 단순히 뒤로 버튼을 눌러 브라우저가 그 검색으로 "되돌아가게" 할 수 있습니다.
 
@@ -338,7 +340,7 @@ https://example.com/contacts?q=joe
 
 따라서 우리의 액티브 검색에 적절한 히스토리 지원을 얻기 위해서는 `hx-push-url` 속성을 `true`로 설정하면 됩니다.
 
-#figure(caption: [액티브 검색 중 URL 업데이트,
+#figure(caption: [액티브 검색 중 URL 업데이트],
 ```html
 <input id="search" type="search" name="q"
   value="{{ request.args.get('q') or '' }}"
@@ -346,7 +348,7 @@ https://example.com/contacts?q=joe
   hx-trigger="change, keyup delay:200ms changed"
   hx-target="tbody"
   hx-push-url="true"/> <1>
-```
+```)
 1. `hx-push-url` 속성을 `true` 값으로 설정하면 htmx가 요청을 발행할 때 URL을 업데이트합니다.
 
 이제 액티브 검색 요청이 발행될 때 브라우저의 탐색 바에서 URL이 올바른 쿼리를 가지도록 업데이트됩니다. 마치 폼이 제출된 것처럼요.
@@ -374,7 +376,7 @@ Htmx는 `hx-indicator` 속성을 통해 요청 표시기를 지원합니다. 이
 <img id="spinner" class="htmx-indicator"
   src="/static/img/spinning-circles.svg"
   alt="Request In Flight..."/> <2>
-```
+```)
 1. 요청 표시기 이미지를 입력 뒤에 지정하는 `hx-indicator` 속성.
 2. 표시기는 회전하는 원형 svg 파일이며, `htmx-indicator` 클래스를 갖고 있습니다.
 
@@ -415,7 +417,7 @@ def contacts():
         contacts_set = Contact.all(page)
     return render_template("index.html",
       contacts=contacts_set, page=page, count=count)
-```
+```)
 1. Contact 모델에서 연락처의 전체 수를 가져옵니다.
 2. 새 HTML을 렌더링할 때 사용할 수 있도록 카운트를 `index.html` 템플릿에 전달합니다.
 
@@ -431,7 +433,7 @@ def contacts():
   <a href="/contacts/new">연락처 추가</a
   > <span>({{ count }}개의 총 연락처)</span> <1>
 </p>
-```
+```)
 1. 총 연락처 수를 보여주는 간단한 span.
 
 음, 그건 쉽지 않았나요? 이제 사용자는 새로운 연락처를 추가하는 링크 옆에 총 연락처 수를 보게 되어 연락처 데이터베이스의 크기를 알 수 있습니다. 이러한 급속한 개발은 구식 웹 애플리케이션 개발의 즐거움 중 하나입니다.
@@ -478,7 +480,7 @@ def contacts():
 def contacts_count():
     count = Contact.count() <3>
     return "(" + str(count) + "개의 총 연락처)" <4>
-```
+```)
 1. 더 이상 이 핸들러에서 `Contacts.count()`를 호출하지 않습니다.
 2. `/contacts` 핸들러에서 렌더링할 템플릿에 카운트를 더 이상 전달하지 않습니다.
 3. 비용이 많이 드는 계산을 처리하는 새로운 핸들러를 `/contacts/count` 경로에 생성합니다.
@@ -502,7 +504,7 @@ def contacts_count():
   <a href="/contacts/new">연락처 추가</a
   > <span hx-get="/contacts/count" hx-trigger="load"></span> <1>
 </p>
-```
+```)
 1. `load` 이벤트가 발생할 때 `/contacts/count`에 `GET` 요청을 발행합니다.
 
 스팬은 비어 있는 상태로 시작합니다: 우리는 그 안의 콘텐츠를 제거하고 요청을 통해 `contacts/count`의 콘텐츠로 채워질 것입니다.
@@ -534,7 +536,7 @@ def contacts_count():
   <img id="spinner" class="htmx-indicator"
     src="/static/img/spinning-circles.svg"/> <1>
 </span>
-```
+```)
 1. 네, 그게 전부입니다.
 
 이제 사용자가 페이지를 로드할 때 총 연락처 수가 기적적으로 나타나기보다는, 무언가가 오는 것을 나타내는 멋진 스피너가 표시됩니다. 훨씬 낫습니다.
@@ -558,7 +560,7 @@ def contacts_count():
   <img id="spinner" class="htmx-indicator"
     src="/static/img/spinning-circles.svg"/>
 </span>
-```
+```)
 1. `hx-trigger`을 `revealed`로 변경합니다.
 
 이제 우리는 진정으로 게으른 구현을 가지고 있으며, 정말로 필요로 하는 순간까지 비싼 계산을 미룹니다. 꽤 멋진 트릭이며, 또 한 번, 한 속성을 변경하는 것만으로도 htmx와 하이퍼미디어 접근 방식의 유연성을 나타냅니다.
@@ -576,7 +578,7 @@ def contacts_count():
     <a href="/contacts/{{ contact.id }}/edit">수정</a>
     <a href="/contacts/{{ contact.id }}">보기</a>
 </td>
-```
+```)
 
 이제 우리는 "삭제" 링크를 추가하고자 합니다. 그리고 그렇게 생각해 보면 이 링크가 `edit.html`에서 사용한 "연락처 삭제" 버튼과 매우 유사하게 작동하기를 원합니다. 우리는 주어진 연락처의 URL에 HTTP `DELETE`를 발행하고자 하며, 사용자가 실수로 연락처를 삭제하지 않도록 확인 대화상자를 원합니다.
 
@@ -591,7 +593,7 @@ def contacts_count():
   hx-target="body">
   연락처 삭제
 </button>
-```
+```)
 
 이제 예상했던 것처럼, 이게 또 다른 복사 및 붙여넣기 작업이 될 것입니다.
 
@@ -609,7 +611,7 @@ def contacts_count():
     hx-confirm="정말로 이 연락처를 삭제하시겠습니까?"
     hx-target="body">삭제</a> <1>
 </td>
-```
+```)
 1. "연락처 삭제" 버튼을 거의 그대로 복사했습니다.
 
 보시는 바와 같이, 우리는 새로운 앵커 태그를 추가했으며, 올바른 마우스 오버 스타일링 동작을 유지하기 위해 공백 타겟(즉 `#` 값을 `href` 속성에 넣음)을 부여했습니다. 우리는 또한 "연락처 삭제" 버튼에서 `hx-delete`, `hx-confirm`, `hx-target` 속성을 복사했지만, URL을 업데이트하지 않을 것이므로 `hx-push-url` 속성은 생략했습니다.
@@ -648,7 +650,7 @@ def contacts_count():
     hx-confirm="정말로 이 연락처를 삭제하시겠습니까?"
     hx-target="closest tr">삭제</a> <1>
 </td>
-```
+```)
 1. 링크의 가장 가까운 `tr`(테이블 행)을 타겟으로 업데이트했습니다.
 
 ==== 서버 측 업데이트 <_updating_the_server_side>
@@ -665,19 +667,20 @@ def contacts_count():
   hx-target="body">
   연락처 삭제
 </button>
-```
+```)
 1. 버튼에 `id` 속성을 추가했습니다.
 
 이 버튼에 id 속성을 부여함으로써 이제 `edit.html` 템플릿의 삭제 버튼과 `rows.html` 템플릿의 삭제 링크를 구별할 수 있는 메커니즘을 갖추게 되었습니다. 이 버튼이 요청을 발행하면, 다음과 같게 요청이 됩니다:
 
-#figure[```http
+#figure(
+```http
 DELETE http://example.org/contacts/42 HTTP/1.1
 Accept: text/html,*/*
 Host: example.org
 ...
 HX-Trigger: delete-btn
 ...
-```
+```)
 
 이제 요청에 버튼의 `id`가 포함되었습니다. 이를 통해 우리는 이전의 액티브 검색 패턴과 유사한 코드 작성을 할 수 있습니다. `HX-Trigger` 헤더에 대한 조건을 사용하여 원하는 작업을 결정할 수 있습니다. 해당 헤더에 `delete-btn` 값이 있으면 편집 페이지의 버튼에서 요청이 발생했음을 인식할 수 있으며 현재 수행 중인 작업을 진행합니다: 연락처를 삭제하고 `/contacts` 페이지 리디렉션합니다.
 
@@ -696,7 +699,7 @@ def contacts_delete(contact_id=0):
         return redirect("/contacts", 303)
     else:
         return "" <2>
-```
+```)
 1. 편집 페이지의 삭제 버튼이 이 요청을 제출한 경우, 이전 로직을 계속 진행합니다.
 2. 그렇지 않으면 빈 문자열을 반환하여 행을 삭제합니다.
 

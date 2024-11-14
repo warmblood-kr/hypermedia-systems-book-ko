@@ -638,7 +638,7 @@ htmx에서는 단일 페이지 애플리케이션 프레임워크와 마찬가�
 <button hx-get="/contacts" hx-target="#main">
   Get The Contacts
 </button>
-```
+```)
 
 현재 상태로는 이 버튼이 클릭될 때 `/contacts`에서 콘텐츠를 검색해 `main` ID가 있는 요소에 로드되지만, _새로운_ 히스토리 항목은 생성되지 않습니다.
 
