@@ -1,3 +1,4 @@
+set working-directory := 'translations/ko-kr'
 
 typst_flags := "--font-path fonts"
 
