@@ -1,0 +1,18 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v2
+      - uses: extractions/setup-just@v2
+      - name: Download Typst
+        run: "wget -qO typst.tar.xz https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz"
+      - name: Install Typst
+        run: "sudo tar xf typst.tar.xz --strip-components=1 -C /usr/local/bin typst-x86_64-unknown-linux-musl/typst"
+      - name: Run just
+        run: "just build-pdf"
