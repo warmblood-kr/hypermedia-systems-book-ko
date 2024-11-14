@@ -744,7 +744,7 @@ Jinja 템플릿 조건문은 우리의 행동이 성공적으로 저장될 때�
 
 우리는 삭제 행동에 대해 이전 장의 설명한 `alert` 시스템 행동을 사용하여 확인을 추가할 수 있습니다. 기억하시겠지만, `alert` 행동은 버튼으로 다른 행동을 트리거할 수 있는 시스템 다이얼로그 박스를 표시합니다. 삭제 `<behavior>`를 `action="alert"`를 사용하는 행동으로 감싸기만 하면 됩니다.
 
-#figure(caption: [삭제 버튼 `hv/edit.xml`]) [ ```xml
+#figure(caption: [삭제 버튼 `hv/edit.xml`])[ ```xml
 <view style="button">
   <behavior <1>
     xmlns:alert="https://hyperview.org/hyperview-alert"

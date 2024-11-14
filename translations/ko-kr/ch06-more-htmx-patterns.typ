@@ -438,7 +438,7 @@ def contacts():
 
 음, 그건 쉽지 않았나요? 이제 사용자는 새로운 연락처를 추가하는 링크 옆에 총 연락처 수를 보게 되어 연락처 데이터베이스의 크기를 알 수 있습니다. 이러한 급속한 개발은 구식 웹 애플리케이션 개발의 즐거움 중 하나입니다.
 
-@fig-totalcontacts는 애플리케이션에서 기능이 어떻게 보일지 보여줍니다. 아름답습니다.
+@fig-totalcontacts 는 애플리케이션에서 기능이 어떻게 보일지 보여줍니다. 아름답습니다.
 
 #figure(image("images/screenshot_total_contacts.png"),
   caption: [총 연락처 수 표시])<fig-totalcontacts>

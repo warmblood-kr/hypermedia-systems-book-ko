@@ -289,7 +289,7 @@ Htmx는 두 가지 유형의 폴링을 제공합니다. 첫 번째는 "고정 �
 ```]<lst:progress-bar-css>
 
 #figure(image("images/screenshot_progress_bar.png"), caption: [
-  우리의 CSS 기반 진행 표시줄, @lst:progress-bar-css에서 구현됨
+  우리의 CSS 기반 진행 표시줄, @lst:progress-bar-css 에서 구현됨
 ])
 
 ===== 진행 표시줄 UI 추가하기 <_adding_the_progress_bar_ui>

@@ -555,7 +555,7 @@ AlpineJS의 맛을 보게 해주기 위해, 카운터 예제를 사용하여 이
 
 카운터에서는 현재 숫자를 추적할 수 있는 상태만 필요하므로, 배열 속성인 `count`를 가진 JavaScript 객체를 `x-data` 속성으로 지정하겠습니다:
 
-#figure(caption: [Alpine의 카운터, 1행]) [ ```html
+#figure(caption: [Alpine의 카운터, 1행])[ ```html
 <div class="counter" x-data="{ count: 0 }">
 ``` ]
 
@@ -564,7 +564,7 @@ AlpineJS의 맛을 보게 해주기 위해, 카운터 예제를 사용하여 이
 
 다음으로 우리는 부모 `div` 요소의 `x-data` 속성에 선언된 `count` 속성에 `x-text` 속성을 _바인딩_할 것입니다. 이를 통해 `output` 요소의 텍스트가 `count`의 값에 의해 설정되며, `count`가 업데이트될 경우 `output`의 텍스트도 동일하게 업데이트 결과를 제공합니다. 이는 "반응형" 프로그래밍으로, DOM이 백업 데이터 변경에 "반응"하는 것입니다.
 
-#figure(caption: [Alpine의 카운터, 1-2행]) [ ```html
+#figure(caption: [Alpine의 카운터, 1-2행])[ ```html
 <div x-data="{ count: 0 }">
   <output x-text="count"></output> <1>
 ``` ]
@@ -576,7 +576,7 @@ AlpineJS의 맛을 보게 해주기 위해, 카운터 예제를 사용하여 이
 
 `click` 이벤트를 듣고 클릭이 발생할 때 `count`를 증가시켜야 하므로, Alpine 코드가 다음과 같이 보일 것입니다:
 
-#figure(caption: [Alpine의 카운터, 전체 구현]) [ ```html
+#figure(caption: [Alpine의 카운터, 전체 구현])[ ```html
 <div x-data="{ count: 0 }">
   <output x-text="count"></output>
 

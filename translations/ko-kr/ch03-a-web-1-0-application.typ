@@ -75,7 +75,7 @@ Flask 어노테이션의 `route()` 메서드는 하나의 인자를 받습니다
 
 따라서 우리는 루트에 대한 경로 정의 바로 뒤에 오는 `index()` 함수가 있으며, 이 함수는 우리의 웹 애플리케이션에서 루트 URL에 대한 핸들러가 됩니다.
 
-이 경우 핸들러는 정말 간단하며, 클라이언트에게 문자열 "Hello World!"를 반환합니다. 이는 아직 하이퍼미디어는 아니지만, @fig-helloworld에서 보듯이 브라우저는 이를 잘 렌더링할 것입니다.
+이 경우 핸들러는 정말 간단하며, 클라이언트에게 문자열 "Hello World!"를 반환합니다. 이는 아직 하이퍼미디어는 아니지만, @fig-helloworld 에서 보듯이 브라우저는 이를 잘 렌더링할 것입니다.
 
 #figure([#image("images/figure_2-1_hello_world.png")], caption: [
   Hello World!
@@ -270,7 +270,7 @@ Flask 경로로 돌아가서, 쿼리 매개변수 `q`가 발견되면, `Contact`
 
 이렇게 해서 우리의 완전한 템플릿이 완성되었습니다. 이 간단한 서버 측 템플릿과 핸들러 메서드를 결합하여 요청한 모든 연락처에 대한 HTML _표현_으로 응답할 수 있습니다. 현재까지는 하이퍼미디어입니다.
 
-@fig-contactapp는 연락처 정보의 일부가 렌더링된 템플릿이 어떻게 보이는지를 보여줍니다.
+@fig-contactapp 는 연락처 정보의 일부가 렌더링된 템플릿이 어떻게 보이는지를 보여줍니다.
 
 #figure(image("images/figure_2-2_table_etc.png"), caption: [Contact.app])<fig-contactapp>
 
