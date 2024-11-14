@@ -3,7 +3,7 @@
 #import "lib/style-ko-kr.typ": *
 
 #show: hypermedia-systems-book(
-  [하이퍼미디어 시스템], authors: ("카슨 그로스", "아담 스테핀스키", "데니즈 악심색"),
+  [Hypermedia Systems], authors: ("카슨 그로스", "아담 스테핀스키", "데니즈 악심색"),
   frontmatter: {
     page(include "-1-copy-ack.typ", header: none, numbering: none)
     page({
