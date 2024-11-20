@@ -6,7 +6,8 @@
 
 * 현재 번역 상태는, 초벌 번역 수준이기 때문에 지속적으로 번역 업데이트가 될 것입니다.
 * 또한, 번역 과정에서 포맷팅이 어긋난 부분들도 있어서, 지속적으로 업데이트가 될 것입니다.
-* 지속적 빌드를 통해서 PDF를 만들어내고 있습니다. [Actions](https://github.com/warmblood-kr/hypermedia-systems-book-ko/actions) 메뉴에서 최신 Build run을 선택하고, 하단의 `Artifact` 섹션에서 PDF를 다운로드 받으시면 됩니다.
+* 지속적 빌드를 통해서 PDF를 만들어내고 있습니다. [Releases](https://github.com/warmblood-kr/hypermedia-systems-book-ko/releases/) 메뉴에서 최신 릴리즈 PDF를 다운로드 받으시면 됩니다.
+
 
 ## TODO
 
