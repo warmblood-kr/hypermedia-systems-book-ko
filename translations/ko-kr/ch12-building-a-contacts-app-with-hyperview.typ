@@ -216,7 +216,7 @@ return render_to_response(template_name,
 지금까지 우리는 연락처 목록이 표시된 화면을 가진 모바일 앱을 구축했습니다. 그러나 우리의 UI는 상호작용을 지원하지 않습니다. 검색 필드에 쿼리를 입력해도 연락처 목록이 필터링되지 않습니다. 타이핑 시 검색 상호작용을 구현하기 위해 검색 필드에 행동을 추가해보겠습니다. 이를 위해 `<text-field>`를 확장하여 `<behavior>` 요소를 추가해야 합니다.
 
 #figure(
-  caption: [Snippet of `hv/index.xml`],
+  caption: [`hv/index.xml` 일부],
 )[ ```xml
 <text-field name="q" value="" placeholder="검색..."
   style="search-field">
@@ -257,7 +257,7 @@ return render_to_response(template_name,
 
 우리의 Flask 백엔드는 `/contacts` 엔드포인트에서 `page` 쿼리 매개변수를 통해 페이지 매김을 이미 지원하고 있습니다. HXML 템플릿을 수정하여 이 매개변수를 활용하기만 하면 됩니다. 이를 위해 `rows.xml`을 편집하여 Jinja for-loop 아래에 새 `<item>`을 추가하겠습니다:
 
-#figure(caption: [Snippet of `hv/rows.xml`])[ ```xml
+#figure(caption: [`hv/rows.xml` 일부])[ ```xml
 <items xmlns="https://hyperview.org/hyperview">
   {% for contact in contacts %}
     <item key="{{ contact.id }}" style="contact-item">
@@ -408,7 +408,7 @@ def contacts_view(contact_id=0):
 우선, 편집 UI를 어떻게 표시할 것인지 결정해야 합니다. 연락처 세부 정보 화면을 스택에 푸시하는 새 편집 화면을 추가할 수 있지만, 이는 사용자 경험 관점에서 가장 좋은 디자인은 아닙니다. 새 화면을 푸시하는 것은 목록에서 단일 아이템으로 드릴 다운하는 데이터 작업일 때 의미가 있습니다. 그러나 편집은 "드릴 다운" 상호작용이 아니라, 보기와 편집 모드 간의 전환입니다. 따라서 새로운 화면을 푸시하는 대신, 현재 화면을 편집 UI로 대체합시다. 이는 헤더에서 버튼 및 행동을 추가해야 함을 의미합니다. 연락처 세부 정보 화면의 헤더에 버튼을 추가할 수 있습니다.
 
 #figure(
-  caption: [Snippet of `hv/show.xml`],
+  caption: [`hv/show.xml` 일부],
 )[ ```xml
 {% block header %}
   <text style="header-button">
@@ -566,7 +566,7 @@ Jinja 템플릿 조건문은 우리의 행동이 성공적으로 저장될 때�
 편집 UI에 한 가지 더 개선 사항을 추가해 보겠습니다. 사용자가 편집 모드에서 연락처를 저장할 필요 없이 전환할 수 있다면 좋을 것 같습니다. 이는 일반적으로 "취소" 동작을 제공하여 이루어집니다. 우리는 이것을 "저장" 버튼 아래에 새로운 버튼으로 추가할 수 있습니다.
 
 #figure(
-  caption: [Snippet of `hv/edit.xml`],
+  caption: [`hv/edit.xml` 일부],
 )[ ```xml
 <view style="button">
   <behavior trigger="press" action="replace-inner"target="form-fields"
@@ -639,7 +639,7 @@ Jinja 템플릿 조건문은 우리의 행동이 성공적으로 저장될 때�
 
 우리는 이제 하이퍼뷰의 이벤트 시스템에 대해 충분히 알고 있습니다. 사용자가 연락처에 대한 변경 사항을 저장할 때, 세부 정보 화면에서 이벤트를 발송해야 합니다. 연락처 화면은 이 이벤트를 수신하고, 자신을 새로 고쳐 편집된 내용을 반영해야 합니다. 이미 `form_fields.xml` 템플릿은 백엔드가 연락처를 성공적으로 저장할 때 `saved` 플래그를 얻으므로 이벤트를 발송하기 좋은 장소입니다:
 
-#figure(caption: [Snippet from `hv/form_fields.xml`])[ ```xml
+#figure(caption: [`hv/form_fields.xml` 일부])[ ```xml
 {% if saved %}
   <behavior
     trigger="load" <1>
@@ -660,7 +660,7 @@ Jinja 템플릿 조건문은 우리의 행동이 성공적으로 저장될 때�
 
 이제 연락처 목록이 `contact-updated` 이벤트를 수신하고 자체적으로 새로 고쳐야 합니다:
 
-#figure(caption: [Snippet from `hv/index.xml`])[ ```xml
+#figure(caption: [`hv/index.xml` 일부])[ ```xml
 <form>
   <behavior
     trigger="on-event" <1>
@@ -693,7 +693,7 @@ Jinja 템플릿 조건문은 우리의 행동이 성공적으로 저장될 때�
 연락처 삭제와 관련하여, 이것은 구현할 다음 좋은 기능입니다. 사용자가 편집 UI에서 연락처를 삭제할 수 있도록 하겠습니다. 따라서 새로운 버튼을 `edit.xml`에 추가하겠습니다.
 
 #figure(
-  caption: [Snippet of `hv/edit.xml`],
+  caption: [`hv/edit.xml` 일부],
 )[ ```xml
 <view style="button">
   <behavior trigger="press" action="replace-inner" target="form-fields"
@@ -725,7 +725,7 @@ Jinja 템플릿 조건문은 우리의 행동이 성공적으로 저장될 때�
 삭제에는 유효성 검사 단계가 필요하지 않으므로 예상되는 결과는 오직 하나뿐입니다: 연락처를 성공적으로 삭제합니다. 삭제가 성공하면 연락처가 더 이상 존재하지 않습니다. 존재하지 않는 연락처의 편집 UI 또는 세부 정보를 표시하는 것은 의미가 없습니다. 대신, 우리의 앱은 이전 화면(연락처 목록)으로 돌아가야 합니다. 응답에는 즉시 트리거되는 행동만 포함됩니다. UI를 변경할 필요는 없습니다. 그러므로 `append` 액션을 사용하게 된다면, 현재 UI를 보존하면서 하이퍼뷰는 행동을 실행합니다.
 
 #figure(
-  caption: [Snippet of `hv/deleted.xml`],
+  caption: [`hv/deleted.xml` 일부],
 )[ ```xml
 <view>
   <behavior trigger="load" action="dispatch-event"

@@ -59,7 +59,7 @@
 
 #indexed[HXML]은 HTML 작업에 익숙한 웹 개발자들에게 친숙하게 느껴지도록 설계되었습니다. 따라서 기본 형식으로 XML을 선택했습니다. 친숙한 수리학 외에도 XML은 서버 측 렌더링 라이브러리와 호환됩니다. 예를 들어 Jinja2는 HXML을 렌더링할 수 있는 템플릿 라이브러리로 적합합니다. XML의 친숙함과 백엔드 통합의 용이성 덕분에 새 코드베이스와 기존 코드베이스 모두에서 쉽게 채택할 수 있습니다. HXML로 작성된 "Hello World" 앱을 살펴보세요. 구문은 HTML 작업을 해본 사람에게는 익숙할 것입니다.
 
-#figure(caption: [Hello World])[
+#figure(caption: [Hello World 예제])[
 ```xml
 <doc xmlns="https://hyperview.org/hyperview">
   <screen>
@@ -127,7 +127,7 @@
 #index[HXML][Hello World!]
 HXML은 HTML에서 오는 웹 개발자들에게 자연스럽게 느껴지도록 설계되었습니다. HXML에서 정의된 "Hello World" 앱을 살펴보겠습니다:
 
-#figure(caption: [Hello World, revisited])[ ```xml
+#figure(caption: [Hello World 다시 보기])[ ```xml
 <doc xmlns="https://hyperview.org/hyperview"> <1>
   <screen> <2>
     <styles />
@@ -656,7 +656,7 @@ HXML은 트리거 및 액션을 통한 상호작용 정의 아이디어를 사�
 
 위의 예제에서 업데이트 액션은 백엔드에서 새 콘텐츠를 가져오고 화면에 추가하도록 요구합니다. 그러나 때로는 기존 요소의 상태를 변경하고 싶을 수 있습니다. 요소의 상태를 변경하는 가장 일반적인 것은 가시성입니다. 하이퍼뷰는 가시성을 변경할 수 있는 `hide`, `show`, 그리고 `toggle` 액션이 있습니다. 다른 업데이트 액션과 마찬가지로, `hide`, `show`, `toggle`은 현재 화면의 요소에 적용할 `target` 속성을 사용합니다.
 
-#figure(caption: [Show, hide, and toggle actions])[ ```xml
+#figure(caption: [show, hide, toggle 액션])[ ```xml
 <screen>
   <body>
     <text>
