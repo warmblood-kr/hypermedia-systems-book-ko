@@ -56,7 +56,7 @@ Flask 애플리케이션은 주어진 경로에 HTTP 요청이 발생할 때 실
 
 이제 우리의 첫 번째 경로 정의, 간단한 "안녕하세요 세계" 경로를 만들어 보겠습니다. 다음 파이썬 코드에서 `@app` 기호를 볼 수 있습니다. 이것은 우리의 경로를 설정할 수 있게 해주는 Flask 장식자입니다. 파이썬에서 장식자가 어떻게 작동하는지를 너무 걱정하지 마십시오. 이 기능은 주어진 _경로_를 특정 함수(즉, 핸들러)에 매핑하도록 해줍니다. Flask 애플리케이션이 시작되면 HTTP요청을 가져와서 매칭되는 핸들러를 조회하고 그것을 호출합니다.
 
-#figure(caption: [A simple "Hello World" route],
+#figure(caption: [간단한 "Hello World" 라우트],
 ```python
 @app.route("/") <1>
 def index(): <2>
@@ -90,7 +90,7 @@ Contact.app에서는 "Hello World!"를 루트 경로에서 렌더링하는 대�
 
 이제 우리의 "Hello World" 경로를 리다이렉션으로 변경하려면 한 줄의 코드만 변경하면 됩니다:
 
-#figure(caption: [Changing "Hello World" to a redirect],
+#figure(caption: ["Hello World"를 리다이렉트로 변경],
 ```python
 @app.route("/")
 def index():
@@ -272,7 +272,7 @@ Flask 경로로 돌아가서, 쿼리 매개변수 `q`가 발견되면, `Contact`
 
 @fig-contactapp 는 연락처 정보의 일부가 렌더링된 템플릿이 어떻게 보이는지를 보여줍니다.
 
-#figure(image("images/figure_2-2_table_etc.png"), caption: [Contact.app])<fig-contactapp>
+#figure(image("images/figure_2-2_table_etc.png"), caption: [Contact.app 화면])<fig-contactapp>
 
 이제, 애플리케이션은 디자인 상을 받을 수준은 아니지만, 렌더링된 템플릿은 모든 연락처를 보고 검색할 수 있는 기능을 제공하고, 수정하거나 세부정보를 보거나 새로운 연락처를 생성할 수 있는 링크를 제공합니다.
 

@@ -32,7 +32,7 @@ HTML의 경우 이러한 링크와 폼은 일반적으로 _Uniform Resource Loca
 
 URL은 다양한 하위 구성 요소로 구성된 문자열입니다:
 
-#figure(caption: [URL Components],
+#figure(caption: [URL 구성 요소],
 ```
 [scheme]://[userinfo]@[host]:[port][path]?[query]#[fragment]
 ```)
@@ -41,7 +41,7 @@ URL은 다양한 하위 구성 요소로 구성된 문자열입니다:
 
 전형적인 URL은 다음과 같을 수 있습니다:
 
-#figure(caption: [A simple URL],
+#figure(caption: [간단한 URL],
 ```
 https://hypermedia.systems/book/contents/
 ```)
@@ -55,7 +55,7 @@ https://hypermedia.systems/book/contents/
 
 URL이 HTML 내에서 전체적으로 작성되지 않는 경우가 많습니다. 예를 들어, 다음과 같은 앵커 태그를 자주 볼 수 있습니다:
 
-#figure(caption: [A Simple Link],
+#figure(caption: [간단한 링크],
 ```html
 <a href="/book/contents/">Table Of Contents</a>
 ```)
@@ -150,36 +150,20 @@ HTTP에는 많은 메서드가 있으며 개발자에게 가장 중요한 실제
 
 #sidebar[Put vs. Post][
 
-While HTTP Actions correspond roughly to CRUD, they are not the same. The
-technical specifications for these methods make no such connection, and are
-often somewhat difficult to read. Here, for example, is the documentation on the
-distinction between a `POST` and a `PUT` from
-#link("https://www.rfc-editor.org/rfc/rfc9110")[RFC-9110].
+HTTP 메서드가 CRUD와 대략적으로 일치하지만, 완전히 동일하지는 않습니다. 이 메서드들에 대한 기술 사양은 그러한 연결을 명시하지 않으며, 읽기가 다소 어려운 경우가 많습니다. 예를 들어, 다음은 #link("https://www.rfc-editor.org/rfc/rfc9110")[RFC-9110]에서 `POST`와 `PUT`의 차이점에 대한 문서입니다.
 
 #blockquote(
   attribution: [RFC-9110, https:\/\/www.rfc-editor.org/rfc/rfc9110\#section-9.3.4],
 )[
-  The target resource in a POST request is intended to handle the enclosed
-  representation according to the resource’s own semantics, whereas the enclosed
-  representation in a PUT request is defined as replacing the state of the target
-  resource. Hence, the intent of PUT is idempotent and visible to intermediaries,
-  even though the exact effect is only known by the origin server.
+  POST 요청의 대상 자원은 자원 고유의 의미에 따라 포함된 표현을 처리하도록 의도된 반면, PUT 요청에 포함된 표현은 대상 자원의 상태를 대체하는 것으로 정의됩니다. 따라서 PUT의 의도는 멱등성(idempotent)을 가지며 중개자에게 가시적입니다. 비록 정확한 효과는 원본 서버만이 알 수 있지만요.
 ]
 
-In plain terms, a `POST` can be handled by a server pretty much however it
-likes, whereas a `PUT` should be handled as a "replacement" of the resource,
-although the language, once again allows the server to do pretty much whatever
-it would like within the constraint of being
-#link(
+쉽게 말해서, `POST`는 서버가 원하는 대로 처리할 수 있는 반면, `PUT`은 자원의 "대체"로 처리되어야 합니다. 물론 언어 자체는 다시 한번 서버가 #link(
   "https://developer.mozilla.org/en-US/docs/Glossary/Idempotent",
-)[_idempotent_].
+)[_멱등성_]의 제약 내에서 원하는 대로 할 수 있도록 허용합니다.
 ]
 
-In a properly structured HTML-based hypermedia system you would use an
-appropriate HTTP method for the operation a particular hypermedia control
-performs. For example, if a hypermedia control such as a button
-_deletes_ a resource, ideally it should issue an HTTP `DELETE`
-request to do so.
+적절히 구조화된 HTML 기반 하이퍼미디어 시스템에서는 특정 하이퍼미디어 제어가 수행하는 작업에 적합한 HTTP 메서드를 사용해야 합니다. 예를 들어, 버튼과 같은 하이퍼미디어 제어가 자원을 _삭제_한다면, 이상적으로는 HTTP `DELETE` 요청을 발행해야 합니다.
 
 HTML에서의 이상한 점은 기본 하이퍼미디어 제어가 HTTP `GET` 및 `POST` 요청만을 발행할 수 있다는 것입니다.
 
@@ -275,17 +259,10 @@ AI 작업을 하고 있다면, 그 분야의 오랜 역사를 지닌 Lisp와 같
 
 하이퍼미디어를 시스템 아키텍처로 사용함으로써 이러한 선택을 채택할 수 있는 자유가 생겼습니다. 클라이언트를 두는 데 있어서 JavaScript의 대규모 코드베이스가 없어, 백엔드에서 JavaScript를 통합해야 할 압박이 없습니다.
 
-#sidebar[Hypermedia On Whatever you'd Like (HOWL)][
-  In the htmx community we call this (with tongue in cheek) the HOWL stack:
-  Hypermedia On Whatever you’d Like. The htmx community is multi-language and
-  multi-framework, there are rubyists as well as pythonistas, lispers as well as
-  haskellers. There are even JavaScript enthusiasts! All these languages and
-  frameworks are able to adopt hypermedia, and are able to still share techniques
-  and offer support to one another because they share a common underlying
-  architecture: they are all using the web as a hypermedia system.
+#sidebar[원하는 것 위에서의 하이퍼미디어 (HOWL)][
+  htmx 커뮤니티에서는 이것을 (농담 반 진담 반으로) HOWL 스택이라고 부릅니다: Hypermedia On Whatever you'd Like (원하는 것 위에서의 하이퍼미디어). htmx 커뮤니티는 다중 언어, 다중 프레임워크입니다. 루비스트도 있고 파이썬 개발자도 있으며, 리스퍼도 있고 하스켈러도 있습니다. 심지어 JavaScript 애호가도 있습니다! 이 모든 언어와 프레임워크가 하이퍼미디어를 채택할 수 있으며, 공통된 기본 아키텍처를 공유하기 때문에 여전히 기술을 공유하고 서로를 지원할 수 있습니다: 모두 웹을 하이퍼미디어 시스템으로 사용하고 있습니다.
 
-  Hypermedia, in this sense, provides a "universal language" for the web that we
-  can all use.
+  이런 의미에서 하이퍼미디어는 우리 모두가 사용할 수 있는 웹의 "보편적 언어"를 제공합니다.
 ]
 
 ==== 하이퍼미디어 클라이언트 <_hypermedia_clients>
@@ -513,7 +490,7 @@ JSON API 클라이언트는 _사전에_ 연락처 정보를 처리하기 위해 
 </html>
 ```)
 
-The second implementation returns the following JSON representation:
+두 번째 구현은 다음과 같은 JSON 표현을 반환합니다:
 
 #figure(
 ```json
@@ -564,7 +541,7 @@ HTML 표현은 이제 다음과 같을 수 있습니다:
 </html>
 ```)
 
-The JSON representation, on the other hand, might look like this:
+반면에 JSON 표현은 다음과 같을 수 있습니다:
 
 #figure(
 ```json
@@ -628,7 +605,7 @@ Fielding은 이 섹션에서 다음과 같이 말합니다:
 
 이제까지 REST와 HATEOAS의 전체 의미를 이해하지 못했다면 걱정하지 마십시오. 우리는 웹 개발에서 10년 이상 일하며 하이퍼미디어 지향 라이브러리를 구축하는 데에도 마찬가지 조건이 필요했습니다. HTML, 하이퍼미디어 및 웹에 대한 특별한 본질을 이해하는 데 오랜 시간이 필요했습니다!
 
-#html-note[HTML5 Soup][
+#html-note[HTML5 수프][
 #blockquote(attribution: [Confucius])[
   지혜의 시작은 사물을 본질적으로 부르기 위해 노력을 기울이는 것입니다.
 ]
